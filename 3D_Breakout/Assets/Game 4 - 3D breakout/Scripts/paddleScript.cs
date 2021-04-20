@@ -31,6 +31,29 @@ public class paddleScript : MonoBehaviour
     {
         Rigidbody rb = collision.rigidbody;
         rb.velocity = new Vector3(rb.velocity.x + moveSpeed * 20f, rb.velocity.y, rb.velocity.z);
+        string objectName = collision.transform.name;
+        if (objectName.StartsWith("BuffDouble"))
+        {
+            Destroy(collision.gameObject);
+            transform.localScale = new Vector3(transform.localScale.x * 2f, transform.localScale.y, transform.localScale.z);
+            calculateMaxX();
+        }
+        if (objectName.StartsWith("BuffHalf"))
+        {
+            Destroy(collision.gameObject);
+            transform.localScale = new Vector3(transform.localScale.x / 2f, transform.localScale.y, transform.localScale.z);
+            calculateMaxX();
+        }
+        if (objectName.StartsWith("BuffFast"))
+        {
+            Destroy(collision.gameObject);
+            paddleSpeed *= 2f;
+        }
+        if (objectName.StartsWith("BuffSlow"))
+        {
+            Destroy(collision.gameObject);
+            paddleSpeed /= 2f;
+        }
     }
 
     //Calculate max x value according to the paddle x scale

@@ -7,18 +7,43 @@ using UnityEngine.SceneManagement;
 public class gameScript : MonoBehaviour
 {
     public Transform ballPrefab;
+    public Transform fastBuff;
+    public Transform slowBuff;
+    public Transform doubleBuff;
+    public Transform halfBuff;
     public Text scoreText;
     public Text liveBallsText;
     private int score;
     private int liveBalls = 0;
     public int numberOfHitBlocks = 0;
     private AudioSource audioSource;
-
+    public GameObject youWinImage;//Give reference to YouWin game object.
 
     public void spawnBallPrefab()
     {
         Instantiate(ballPrefab, new Vector3(0f, 0f, 20f), Quaternion.identity);
         liveBalls++;
+    }
+
+    private void spawnBuffBall()
+    {
+        int randomInt = Random.Range(0, 4);
+        int initialPos_x = Random.Range(-19, 20);
+        switch (randomInt)
+        {
+            case 0:
+                Instantiate(fastBuff, new Vector3(initialPos_x, 0f, 20f), Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(slowBuff, new Vector3(initialPos_x, 0f, 20f), Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(halfBuff, new Vector3(initialPos_x, 0f, 20f), Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(doubleBuff, new Vector3(initialPos_x, 0f, 20f), Quaternion.identity);
+                break;
+        }
     }
 
     void Awake()
@@ -40,7 +65,12 @@ public class gameScript : MonoBehaviour
         {
             SceneManager.LoadScene("Breakout");
         }
-        
+        if(numberOfHitBlocks == 2)//numberOfRows(13) * numberOfColumns(6) = total(78)
+        {
+            youWinImage.SetActive(true);
+            audioSource.Play();
+            Time.timeScale = 0f;
+        }
     }
 
     public void blockHit(int point)
@@ -50,6 +80,10 @@ public class gameScript : MonoBehaviour
         if(numberOfHitBlocks % 10 == 0)
         {
             spawnBallPrefab();
+        }
+        if (numberOfHitBlocks % 8 == 0)
+        {
+            spawnBuffBall();
         }
         score += point;
     }
