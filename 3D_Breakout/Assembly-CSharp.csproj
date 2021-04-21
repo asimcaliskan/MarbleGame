@@ -68,11 +68,19 @@
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\ballScript.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\blockScript.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\buffBallScrip.cs" />
+    <Compile Include="Assets\Game 4 - 3D breakout\Scripts\gameMusicScript.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\gameScript.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\gameStart.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\paddleBounceSound.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\paddleScript.cs" />
+    <Compile Include="Assets\Game 4 - 3D breakout\Scripts\playGameMusic.cs" />
+    <Compile Include="Assets\Game 4 - 3D breakout\Scripts\restartGameScript.cs" />
     <Compile Include="Assets\Game 4 - 3D breakout\Scripts\wallBouncingSound.cs" />
+    <None Include="Assets\Simple Toon\Shaders\STCore.cginc" />
+    <None Include="Assets\Simple Toon\Shaders\STTransparent.shader" />
+    <None Include="Assets\Simple Toon\Shaders\STDefault.shader" />
+    <None Include="Assets\Simple Toon\Shaders\STFunctions.cginc" />
+    <None Include="Assets\Simple Toon\Shaders\STOutline.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

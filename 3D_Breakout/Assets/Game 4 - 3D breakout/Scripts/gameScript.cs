@@ -48,7 +48,6 @@ public class gameScript : MonoBehaviour
 
     void Awake()
     {
-        Time.timeScale = 0f;
         spawnBallPrefab();
     }
 
@@ -63,13 +62,12 @@ public class gameScript : MonoBehaviour
         liveBallsText.text = "LIVE BALLS " + liveBalls;
         if(liveBalls == 0)
         {
-            SceneManager.LoadScene("Breakout");
+            SceneManager.LoadScene("RestartScene");
         }
-        if(numberOfHitBlocks == 2)//numberOfRows(13) * numberOfColumns(6) = total(78)
+        if(numberOfHitBlocks == 78)//numberOfRows(13) * numberOfColumns(6) = total(78)
         {
-            youWinImage.SetActive(true);
+            SceneManager.LoadScene("FinishScene");
             audioSource.Play();
-            Time.timeScale = 0f;
         }
     }
 

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameStart : MonoBehaviour
 {
-    public GameObject gameStartImage;//Give reference to GameStartImage game object.
-    public void StartGame() 
+    public void startGame() 
     {
-        Time.timeScale = 1f;
-        gameObject.SetActive(false);
-        gameStartImage.SetActive(false);
+        SceneManager.LoadScene("Breakout");
     }
 }
